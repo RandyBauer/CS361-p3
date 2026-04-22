@@ -1,3 +1,4 @@
+import tm.Transition;
 import tm.TuringMachine;
 
 import java.io.BufferedReader;
@@ -22,8 +23,15 @@ class TMSimulator {
         tm.setHaltState(numStates - 1);
 
         //parse transitions
-        for (int state = 0; state <= numStates; state++){
-
+        for (int state = 0; state <= numStates - 2; state++){
+            for (int symbol = 0; symbol < alphabetSize; symbol++){
+                String line = buffreader.readLine();
+                String[] parts = line.split(",");
+                int nextState = Integer.parseInt(parts[0]);
+                int writeSymbol = Integer.parseInt(parts[1]);
+                char move = parts[2].charAt(0);
+                tm.addTransition(state, symbol, new Transition(nextState, writeSymbol, move));
+            }
         }
 
 

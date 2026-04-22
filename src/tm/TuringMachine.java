@@ -1,5 +1,6 @@
 package tm;
 
+import java.util.HashMap;
 import java.util.LinkedHashMap;
 import java.util.Map;
 
@@ -15,5 +16,16 @@ public class TuringMachine {
         this.tape = new Tape();
         currentState = 0;
         haltState = 0;
+    }
+
+    public void setHaltState(int n){
+        haltState = n;
+    }
+
+    public void addTransition(int state, int symbol, Transition t){
+        if (transitions.containsKey(state)) {
+            transitions.put(state, new HashMap<>());
+        }
+        transitions.get(state).put(symbol, t);
     }
 }
