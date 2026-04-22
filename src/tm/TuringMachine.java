@@ -23,9 +23,23 @@ public class TuringMachine {
     }
 
     public void addTransition(int state, int symbol, Transition t){
-        if (transitions.containsKey(state)) {
+        if (!transitions.containsKey(state)) {
             transitions.put(state, new HashMap<>());
         }
         transitions.get(state).put(symbol, t);
+    }
+
+    public void run(){
+        while (currentState != haltState) {
+            Transition tran = transitions.get(currentState).get(tape.read());
+            tape.write(tran.getWriteSymbol());
+            tape.moveHead(tran.getMove());
+            currentState = tran.getNextState();
+        }
+        System.out.println(tape.getOutput());
+    }
+
+    public void loadTape(String input){
+        tape.loadInput(input);
     }
 }

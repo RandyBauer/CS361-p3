@@ -1,5 +1,4 @@
-import tm.Transition;
-import tm.TuringMachine;
+package tm;
 
 import java.io.BufferedReader;
 import java.io.FileReader;
@@ -29,11 +28,25 @@ class TMSimulator {
                 String[] parts = line.split(",");
                 int nextState = Integer.parseInt(parts[0]);
                 int writeSymbol = Integer.parseInt(parts[1]);
-                char move = parts[2].charAt(0);
+
+                //trim whitespace
+                char move = parts[2].trim().charAt(0);
+
+                //debug issues
+                System.out.println(state + ", " + symbol + ", " + nextState + ", " + writeSymbol + ", " + move);
                 tm.addTransition(state, symbol, new Transition(nextState, writeSymbol, move));
             }
         }
 
+        //line holds readline from buffered reader
+        String line = buffreader.readLine();
+        if (line != null && !line.isEmpty()) {
+            tm.loadTape(line);
+        }
+        //close reader
+        buffreader.close();
+        //run turingmachine object
+        tm.run();
 
 
     }
