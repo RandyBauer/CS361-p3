@@ -4,8 +4,15 @@ import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
 
-class TMSimulator {
+/**
+ * Driver class for the Turing machine simulation. Reads a Turing machine description
+ * from a file and runs the machine on that input. 
+ * 
+ * @author Randy Bauer, Oliver Hill
+ */
+public class TMSimulator {
     public static void main(String[] args) throws IOException {
+
         //gets filename from CL
         String filename = args[0];
 
@@ -32,8 +39,6 @@ class TMSimulator {
                 //trim whitespace
                 char move = parts[2].trim().charAt(0);
 
-                //debug issues
-                System.out.println(state + ", " + symbol + ", " + nextState + ", " + writeSymbol + ", " + move);
                 tm.addTransition(state, symbol, new Transition(nextState, writeSymbol, move));
             }
         }
