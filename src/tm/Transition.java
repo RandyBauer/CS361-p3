@@ -25,7 +25,7 @@ public class Transition {
 
     /**
      * Getter for the next state of the transition.
-     * @return
+     * @return nextState
      */
     public int getNextState() {
         return nextState;
@@ -33,7 +33,7 @@ public class Transition {
 
     /**
      * Getter for the symbol to write in the transition.
-     * @return
+     * @return writeSymbol
      */
     public int getWriteSymbol() {
         return writeSymbol;
@@ -41,7 +41,7 @@ public class Transition {
 
     /**
      * Getter for the move direction of the transition.
-     * @return
+     * @return move
      */
     public char getMove() {
         return move;
@@ -49,6 +49,7 @@ public class Transition {
 
     /**
      * Returns a string representation of the transition.
+     * @return String
      */
     public String toString() {
         return "(" + nextState + ", " + writeSymbol + ", " + move + ")";

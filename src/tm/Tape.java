@@ -89,7 +89,7 @@ public class Tape {
 
     /**
      * Returns the output string representing the symbols on the tape from the min index to the max index.
-     * @return
+     * @return the output string
      */
     public String getOutput(){
         StringBuilder strb = new StringBuilder();

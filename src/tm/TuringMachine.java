@@ -32,7 +32,7 @@ public class TuringMachine {
 
     /**
      * Setter for the halt state of the Turing machine.
-     * @param n
+     * @param n the halt state
      */
     public void setHaltState(int n){
         haltState = n;
@@ -40,9 +40,9 @@ public class TuringMachine {
 
     /**
      * Adds a transition to the Turing machine.
-     * @param state
-     * @param symbol
-     * @param t
+     * @param state the current state
+     * @param symbol the input symbol
+     * @param t the transition
      */
     public void addTransition(int state, int symbol, Transition t){
         if (!transitions.containsKey(state)) {
